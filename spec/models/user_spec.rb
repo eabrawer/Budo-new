@@ -52,7 +52,9 @@ describe User do
 				@user2.email = @user.email.upcase
 				@user2.save
 			end
-			it { should_not be_valid }
+			it "should not be valid" do
+				@user2.should_not be_valid
+			end
 		end
 
 		describe "When password is not present" do

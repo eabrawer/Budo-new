@@ -1,0 +1,21 @@
+<%= form_for @user do |form| %>
+   <%= form.text_field :username, :placeholder => 'Enter username' %><br />
+
+   <%= form.text_field :email, :placeholder => 'Enter your email' %><br />
+
+   <%= form.password_field :password, :placeholder => 'Enter password' %><br />
+
+   <%= form.password_field :password_confirmation, :placeholder => 'Repeat password' %><br />
+
+   <%= form.text_field :country, :placeholder => 'Enter your country' %><br />
+
+   <%= form.text_field :state, :placeholder => 'Enter your state' %><br />
+
+   <%= form.text_field :city, :placeholder => 'Enter your city' %><br />
+
+   <%= form.text_field :picture, :placeholder => 'Enter your picture' %><br />  
+
+   <%= form.text_area :biography, :placeholder => 'Write something about yourself' %><br /> 
+
+   <%= form.submit "Save account" %>
+<% end %>
