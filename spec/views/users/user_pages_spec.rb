@@ -4,13 +4,11 @@ describe "User Pages" do
 	subject { page }
 
 	describe "User Show/Profile Page" do
-
 		let(:user) {FactoryGirl.create(:user)}
 
 		before { visit user_path(user.id) }
 
 		it { should have_selector('h1', text: user.username) }
-
 	end
 
 	describe "User New/Signup Page" do
@@ -49,6 +47,15 @@ describe "User Pages" do
 				expect { click_button submit }.to change(User, :count).by(1)					
 			end	
 
+			describe "after saving a user" do
+				before {click_button submit }
+
+				let(:user) { User.find_vy_email("user@example.com") }
+
+				it { should have_content ("successfully") }
+				it { should have_link ("Sign out") }
+			end
+
 			# To test the flash just check for selector that
 			# is unique to the flash
 
@@ -56,11 +63,28 @@ describe "User Pages" do
 
 
 
-# Need to learn how to test for redirect
+		# Need to learn how to test for redirect
 		# describe "After saving a user" do
 		# 	before { click_button "Save account" }
 		# 	it { should_have selector('h1', text: @user.username) }
 		# end
+	end
 
+	describe 'User Edit Page' do
+		let(:user) { FactoryGirl.create(:user) }
+
+		before { visit edit_user_path(user) }
+
+		describe "page" do
+			it { should have_selector('h1', text: 'User Edit') }
+		end
+
+		describe "with invalid information" do
+			before { click_button "Save account"}
+			it { should have_content("error") }
+		end
+
+		describe "with valid information" do
+		end
 	end
 end

@@ -9,6 +9,7 @@ class CreateUsers < ActiveRecord::Migration
     	t.string :state
     	t.string :city
     	t.text :biography
+        # t.string :remember_token
     	t.timestamps
     end
   end

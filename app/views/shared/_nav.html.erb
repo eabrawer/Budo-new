@@ -1,0 +1,17 @@
+<div id="nav"
+	<ul>
+	    <li class="oneline"><p class="blue">Budo</p></li>
+	    <li><p class="blue">What</p><span class="smalltext">is Budo?</span></li>
+	    <li><p class="blue">Help</p><span class="smalltext">find the budo path</span></li>
+	    <li><p class="blue">Create</p><span class="smalltext">a path</span></li>
+
+  	<% if current_user %>
+  	    <li class="oneline"><span class="blue"><%= link_to "Profile", user_path(current_user) %></span></li>
+    	<li class="oneline"><span class="smalltext"><%= link_to "Sign out", signout_path("current"), :method => :delete %></span></li>
+    	<li class="oneline">Signed in as <%= current_user.email %></li>
+  	<% else %>
+    	<li class="oneline"><span class="smalltext"><%= link_to "Sign in", new_session_path %></span></li> 
+    	<li class="oneline"><span class="smalltext"><%= link_to "Sign up", new_user_path %></span></li>
+  	<% end %>
+	</ul>
+</div>

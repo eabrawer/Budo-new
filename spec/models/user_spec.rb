@@ -15,7 +15,8 @@ describe User do
 		@user.should respond_to(:country)
 		@user.should respond_to(:state)
 		@user.should respond_to(:city)	
-		@user.should respond_to(:biography)						
+		@user.should respond_to(:biography)	
+		@user.should respond_to(:remember_token)					
 	end
 
 	it "should only allow biography and picture to be empty" do
@@ -98,5 +99,11 @@ describe User do
 			it { should_not be_valid }
 		end
 
-
+		# describe "remember token" do
+		# 	before { @user.save }
+		# 	# its(:remember_token) { should_not be_blank }
+		# 	it "should have a nonblank remember token" do
+		# 		subject.remember_token.should_not be_blank
+		# 	end
+		# end
 end

@@ -1,5 +1,9 @@
 class User < ActiveRecord::Base
 	has_secure_password
+
+	before_save { |user| user.email = user.email.downcase }
+	# before_save :create_remember_token 
+
     	# t.string :username,
     	# t.string :email,
     	# t.string :password_digest,
@@ -8,6 +12,7 @@ class User < ActiveRecord::Base
     	# t.string :state,
     	# t.string :city,	
     	# t.text :biography,
+    	# t.string :remember_token
 
 	has_many :martial_arts
 	has_many :schools
@@ -26,4 +31,9 @@ class User < ActiveRecord::Base
 
 	validates :country, :state, :city, presence: true
 
+
+	# private
+	# 	def create_remember_token
+	# 		self.remember_token = SecureRandom.urlsafe_base64
+	# 	end
 end
