@@ -58,7 +58,6 @@ describe "User Pages" do
 
 			# To test the flash just check for selector that
 			# is unique to the flash
-
 		end
 
 
@@ -73,18 +72,40 @@ describe "User Pages" do
 	describe 'User Edit Page' do
 		let(:user) { FactoryGirl.create(:user) }
 
-		before { visit edit_user_path(user) }
+		before do 
+			visit signin_path
+			fill_in "Email", :with => user.email
+			fill_in "password", :with => user.password
+			click_button "Sign in"
+			visit edit_user_path(user) 
+		end
 
 		describe "page" do
 			it { should have_selector('h1', text: 'User Edit') }
 		end
 
 		describe "with invalid information" do
-			before { click_button "Save account"}
+			before { click_button "Save account" }
+
 			it { should have_content("error") }
 		end
 
 		describe "with valid information" do
+			let(:new_name) { "New Name" }
+			let(:new_email) { "new@gmail.com" }
+
+			before do
+				fill_in 'Enter username', 				  with: new_name
+				fill_in 'Enter your email', 			  with: new_email
+				fill_in 'Enter password', 				  with: user.password
+				fill_in 'Repeat password', 				  with: user.password
+				click_button "Save account"
+			end
+
+			it { should have_content("New Name") }
+			it { should have_content("updated") }
+			specify { user.reload.username.should == new_name }
+			specify { user.reload.email.should == new_email }
 		end
 	end
 end

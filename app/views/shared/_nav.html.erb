@@ -6,7 +6,8 @@
 	    <li><p class="blue">Create</p><span class="smalltext">a path</span></li>
 
   	<% if current_user %>
-  	    <li class="oneline"><span class="blue"><%= link_to "Profile", user_path(current_user) %></span></li>
+  	  <li class="oneline"><span class="blue"><%= link_to "Profile", current_user %></span></li>
+      <li class="oneline"><span class="blue"><%= link_to "Settings", edit_user_path(current_user) %></span></li>
     	<li class="oneline"><span class="smalltext"><%= link_to "Sign out", signout_path("current"), :method => :delete %></span></li>
     	<li class="oneline">Signed in as <%= current_user.email %></li>
   	<% else %>
