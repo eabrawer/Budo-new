@@ -41,6 +41,10 @@ gem 'capybara'
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 
+# File uploader
+gem 'carrierwave'
+gem "rmagick"
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

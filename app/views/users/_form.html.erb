@@ -1,4 +1,4 @@
-<%= form_for @user do |form| %>
+<%= form_for @user, :html => {:multipart => true} do |form| %>
    <%= form.text_field :username, :placeholder => 'Enter username' %><br />
 
    <%= form.text_field :email, :placeholder => 'Enter your email' %><br />
@@ -13,7 +13,7 @@
 
    <%= form.text_field :city, :placeholder => 'Enter your city' %><br />
 
-   <%= form.text_field :picture, :placeholder => 'Enter your picture' %><br />  
+   <%= form.file_field :avatar, :placeholder => 'Enter your avatar' %><br />  
 
    <%= form.text_area :biography, :placeholder => 'Write something about yourself' %><br /> 
 

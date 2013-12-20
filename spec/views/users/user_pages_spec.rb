@@ -6,9 +6,17 @@ describe "User Pages" do
 	describe "User Show/Profile Page" do
 		let(:user) {FactoryGirl.create(:user)}
 
-		before { visit user_path(user.id) }
+		before do 
+			visit signin_path
+			fill_in "Email", :with => user.email
+			fill_in "password", :with => user.password
+			click_button "Sign in"
+			visit edit_user_path(user) 
+		end
 
-		it { should have_selector('h1', text: user.username) }
+		before { visit user_path(user) }
+
+		it { should have_content(user.username) }
 	end
 
 	describe "User New/Signup Page" do

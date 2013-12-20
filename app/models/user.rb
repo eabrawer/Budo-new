@@ -1,13 +1,11 @@
 class User < ActiveRecord::Base
 	has_secure_password
-
 	before_save { |user| user.email = user.email.downcase }
 	# before_save :create_remember_token 
 
     	# t.string :username,
     	# t.string :email,
     	# t.string :password_digest,
-    	# t.string :picture,
     	# t.string :country,
     	# t.string :state,
     	# t.string :city,	
@@ -30,6 +28,8 @@ class User < ActiveRecord::Base
 	validates :biography, length: { in: 100..500 }
 
 	validates :country, :state, :city, presence: true
+
+	mount_uploader :avatar, AvatarUploader
 
 
 	# private

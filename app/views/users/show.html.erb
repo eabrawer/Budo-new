@@ -5,6 +5,6 @@
 <%= @user.state %><br />
 <%= @user.city %><br />
 <%= @user.biography %><br />
-<%= @user.picture %><br />
+<%= image_tag @user.avatar_url(:thumb) %><br />
 
 <%= link_to "User index", users_url %>

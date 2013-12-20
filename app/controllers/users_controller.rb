@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_filter :load_user,      :only => [:show, :update, :edit, :destroy]
   before_filter :signed_in_user, :only => [:show, :edit, :update]
-  before_filter :correct_user,   :only=> [:edit, :update]
+  before_filter :correct_user,   :only => [:edit, :update]
 
   def index
   	@users = User.all
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
 
   def user_params
   	params.require(:user).permit(:username, :email,
-  	:password, :password_confirmation, :picture,
+  	:password, :password_confirmation, :avatar,
   	:country, :state, :city, :biography)
   end
 

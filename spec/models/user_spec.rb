@@ -11,15 +11,15 @@ describe User do
 		@user.should respond_to(:password_digest)
 		@user.should respond_to(:password)
 		@user.should respond_to(:password_confirmation)				
-		@user.should respond_to(:picture)
+		@user.should respond_to(:avatar)
 		@user.should respond_to(:country)
 		@user.should respond_to(:state)
 		@user.should respond_to(:city)	
 		@user.should respond_to(:biography)	
-		@user.should respond_to(:remember_token)					
+		# @user.should respond_to(:remember_token)					
 	end
 
-	it "should only allow biography and picture to be empty" do
+	it "should only allow biography and avatar to be empty" do
 		@user.username.should_not be_empty
 		@user.email.should_not be_empty
 		@user.password.should_not be_empty
