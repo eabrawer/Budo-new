@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body {
+	background-color: #0096bb;
+}
 
 #error_explanation {
 	color: #f00;
@@ -9,3 +12,85 @@
 		margin: 0 0 10px 0;
 	}
 }
+
+#userInfoBox {
+	border: 1px solid white;
+	width: 200px;
+	height: 100%;
+	float: left;
+	margin: 10px 0 0 10px;
+}
+
+#avatarBox {
+	background: white;
+	text-align: center;
+	height: 200px;
+	width: 200px;
+}
+
+#userTitle {
+	font-size: 20px;
+	width: 200px;
+	text-align: 0 auto;
+	height: 100%;
+}
+
+#userDetails {
+	background-color: #f1f1f1;
+	width: 200px;
+	height: 100%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#bioBox {
+	background-color: white;
+	height: 200px;
+	width: 160px;
+	padding: 10px 20px 10px 20px;
+	overflow: scroll;
+	text-align: justify;
+}
+
+.floatLeft {
+	float: left;
+	clear: left;
+}
+
+
+
+#social {
+	background-color: white;
+	border-top: 1px solid #d0d5cb;
+	height: 100px;
+}
+
+.socialIcon {
+	height: 30px;
+	margin-top: 20px;
+	margin-left: 35px;
+	margin-right: 35px;
+
+}
+
+
+#youtube {
+	width: 60px;
+}
+
+#facebook {
+/*	border-right: 1px solid gray;*/
+	float: left;
+	width: 30px;
+}
+
+#twitter {
+	float: left;
+	width: 30px;
+}
+
+
+
+
+
+

@@ -31,6 +31,9 @@ class User < ActiveRecord::Base
 
 	mount_uploader :avatar, AvatarUploader
 
+	def address
+		return "From #{city}, #{country}"
+	end
 
 	# private
 	# 	def create_remember_token

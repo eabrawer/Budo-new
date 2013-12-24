@@ -1,10 +1,40 @@
-<h1>This is the user show</h1>
-<h1><%= @user.username %></h1>
-<%= @user.email %><br />
-<%= @user.country %><br />
-<%= @user.state %><br />
-<%= @user.city %><br />
-<%= @user.biography %><br />
-<%= image_tag @user.avatar_url(:thumb) %><br />
+<div id="userInfoBox">
+	<div id="avatarBox">
+		<% if @user.avatar != nil %> 
+			<%= image_tag @user.avatar_url(:thumb) %> 
+		<% else %>
+			<div class="thumb" ><%= default_url %></div>
+		<% end %>
+	</div>
+	<div id="userDetails">
+		<br />
+		<span id="userTitle"><%= @user.username %></span><br />
+		<p><%= @user.address %></p>
+		<br />
+	</div>
+	<div id="bioBox">
+		<%= @user.biography %>
+	</div>
+	<div id="social">
+		<div id="socialBox">
+			<img class="socialIcon" id="facebook" src="/assets/facebook.png">
+		</div>
+		<div id="socialBox">
+			<img class="socialIcon" id="twitter" src="/assets/twitter.png">
+		</div>
+<!-- 		<img class="socialIcon" id="youtube" src="/assets/youtube.png"> -->
+	</div>
+</div>
 
-<%= link_to "User index", users_url %>
+<div class="floatLeft">
+	<%= link_to "User index", users_url %>
+</div>
+
+
+
+
+
+
+
+
+
